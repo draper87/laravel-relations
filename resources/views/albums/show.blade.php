@@ -1,4 +1,5 @@
 <h1>Album {{ $album->title }}</h1>
+<img src="{{ $album->covers->cover }}" alt="">
 <p>Artista {{ $album->artist }}</p>
 <p>Anno {{ $album->year }}</p>
 
