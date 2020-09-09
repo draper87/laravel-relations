@@ -25,7 +25,7 @@ class SongsTableSeeder extends Seeder
                'dance',
                'metal'
              ]);
-             $new_song->albums_id = $i + 1;
+             $new_song->album_id = $i + 1;
              $new_song->save();
            }
          }

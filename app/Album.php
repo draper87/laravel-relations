@@ -8,11 +8,11 @@ class Album extends Model
 {
   protected $fillable = [
     'title',
-    'artista',
+    'artist',
     'year'
   ];
 
   public function songs() {
-    return $this->hasMany('App\Models\Song');
+    return $this->hasMany('App\Song');
   }
 }

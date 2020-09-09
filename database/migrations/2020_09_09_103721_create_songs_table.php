@@ -19,8 +19,8 @@ class CreateSongsTable extends Migration
           $table->id();
           $table->string('title');
           $table->string('genre');
-          $table->unsignedBigInteger('albums_id');
-          $table->foreign('albums_id')->references('id')->on('albums');
+          $table->unsignedBigInteger('album_id');
+          $table->foreign('album_id')->references('id')->on('albums');
           $table->timestamps();
         });
     }

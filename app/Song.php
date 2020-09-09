@@ -14,6 +14,6 @@ class Song extends Model
   ];
 
   public function album() {
-    return $this->belongsTo('App\Models\Album');
+    return $this->belongsTo('App\Album');
   }
 }
