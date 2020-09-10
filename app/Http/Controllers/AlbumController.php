@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Album;
+use App\Format;
 
 class AlbumController extends Controller
 {
@@ -57,9 +58,16 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Album $album)
     {
-        //
+
+        $formats = Format::all();
+
+
+        return view('albums.edit', [
+          'album' => $album,
+          'formats' => $formats
+        ]);
     }
 
     /**
@@ -69,9 +77,21 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Album $album)
     {
-        //
+
+      // prelevo i dati ricevuti dal form e aggiorno il database
+      $dati_update = $request->all();
+      if(isset($dati_update['formats'])) {
+        $album->formats()->sync($dati_update['formats']);
+      }
+      $album->update($dati_update);
+
+      // ritorno alla pagina principale se la modifica e avvenuta con successo
+      if ($album) {
+        $albums = Album::all();
+        return view('albums.index', compact('albums'));
+      }
     }
 
     /**

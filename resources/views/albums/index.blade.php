@@ -20,6 +20,7 @@
       <li>Year: {{ $album->year }}</li>
     </ul>
     <a href="{{ route('albums.show', $album)}}">Visualizza</a>
+    <a href="{{ route('albums.edit', $album)}}">Modifica</a>
   </div>
 @endforeach
 
