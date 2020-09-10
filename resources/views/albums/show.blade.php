@@ -3,6 +3,15 @@
 <p>Artista {{ $album->artist }}</p>
 <p>Anno {{ $album->year }}</p>
 
+@if (!($album->formats->isEmpty()))
+  <p>Supporto musicale:
+  @foreach ($album->formats as $format)
+     {{ $format->format }}
+  @endforeach
+  </p>
+@endif
+
+
 <h2>Lista canzoni</h2>
 @foreach ($album->songs as $song)
   <div class="">

@@ -19,4 +19,9 @@ class Album extends Model
   public function covers() {
     return $this->hasOne('App\Cover');
   }
+
+  public function formats() {
+  return $this->belongsToMany('App\Format');
+  }
+
 }
